@@ -12,27 +12,29 @@ class Storage
 	 * if the storage mode isn't found here.
 	 * @var array
 	 */
-	protected $modes = ['apc'];
+	protected $compatible_modes = ['apcu'];
+	protected $mode;
 
 	public function __construct($mode){
 
-		if(!in_array($mode, $this->modes)){
+		if(!in_array($mode, $this->compatible_modes)){
 
 			throw new Exception("Ivalid storage set");
 			
 		}
+		$this->mode = $mode;
 
 	}
 
 
-	public function save($key, $value, $mode='apc')
+	public function save($key, $value)
 	{
 		
-		if($mode == 'apc'){
+		if($this->mode == 'apcu'){
 
 			try {
 
-				apc_store($key, $value);
+				apcu_store($key, $value);
 				
 				return True;
 				
@@ -45,14 +47,14 @@ class Storage
 
 	}
 
-	public function get($key, $mode='apc')
+	public function get($key)
 	{
 		
-		if($mode == 'apc'){
+		if($this->mode == 'apcu'){
 
 			try {
 
-				$result = apc_fetch($key);
+				$result = apcu_fetch($key);
 				
 				return $result;
 				
@@ -62,6 +64,22 @@ class Storage
 
 			}
 
+		}
+	}
+
+	public function all()
+	{
+		if($this->mode == 'apcu'){
+			try {
+
+				return apcu_cache_info()['cache_list'];
+				
+				
+			} catch (Exception $e) {
+
+				throw $e;
+
+			}
 		}
 	}
 

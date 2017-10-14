@@ -2,5 +2,5 @@
 
 
 return [
-    'storage' => 'apc'
+    'storage' => 'apcu'
 ];

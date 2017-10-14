@@ -11,50 +11,58 @@
 	  	        </div>
 	  	
 		</div>
-		  
-		<div class="section">
-			<div class="container">
-				<div class="row">
-					<h2>Get an item</h2>
-					<form class="col s12" action="/get">
-						<div class="row">
-							<input type="text" name="key" placeholder="Search ..." class="validate">
-							
-						</div>
-						<div class="row">
-							<input class="waves-effect waves-light btn" type="submit"	  value="search">
-							
-						</div>
-					</form>			
-				</div>
+		
+		<div class="container">
+			<div class="col sm12 m6">
 				
-				
-			</div>
-		</div>
-		  
-		<div class="section">
-			<div class="container">
-				<div class="row">
-					<h2>Set a new item</h2>
-					<form action="/set">
 						<div class="row">
+							<form class="col s12 m5" action="/get">
+								<h2>Get an item</h2>
+								<div class="row">
+									<input type="text" name="key" placeholder="Search ..." class="validate">
+									
+								</div>
+								<div class="row">
+									<input class="waves-effect waves-light btn" type="submit"	  value="search">
+									
+								</div>
+							</form>	
+							<div class="col sm12 m6 offset-m1">
+								
+								<h2>Current stored items</h2>
+								<ul style="list-style: circle;">
+									<?php foreach ($storedItems as $key): ?>
+										<li style="list-style-type: circle; padding-left: 10px; margin-left: 20px;"><?= $key['info']; ?></li>
+									<?php endforeach; ?>
+								</ul>
 							
-							<input type="text" name="key" placeholder="Name of your item">
+							</div>		
 						</div>
+						
+					
 						<div class="row">
-							<input type="text" name="value" placeholder="Description of your item">
-							
-						</div>
-						<div class="row">
-							<input class="waves-effect waves-light btn" type="submit" value="Save ...">
-							
-						</div>
+							<form class="col s12 m5" action="/set">
+								<h2>Set a new item</h2>
+								<div class="row">
+									
+									<input type="text" name="key" placeholder="Name of your item">
+								</div>
+								<div class="row">
+									<input type="text" name="value" placeholder="Description of your item">
+									
+								</div>
+								<div class="row">
+									<input class="waves-effect waves-light btn" type="submit" value="Save ...">
+									
+								</div>
 
-					</form>
-				</div>
-				
+							</form>
+						</div>
+						
+						
 				
 			</div>
+			
 		</div>
 	
 	
