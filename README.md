@@ -12,5 +12,7 @@ This is a small project to try to figure out basic ways of handling routing, fla
 ### Instructions
 
 ```
-$ php -S 4000
+$ php -S localhost:4000
 ```
+
+Then go to localhost:4000 ;-)
