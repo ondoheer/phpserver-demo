@@ -14,7 +14,7 @@ $data = array(
 
 // store basic data for the memory storage
 foreach ($data as $key => $value) {
-	apc_store($key, $value);
+	apcu_store($key, $value);
 }
 
 $storage = new Storage($app['config']['storage']);

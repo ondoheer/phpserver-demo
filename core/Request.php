@@ -16,6 +16,6 @@ class Request
 			$flash[$key] = $value;
 		}
 
-		apc_store('flash', $flash);
+		apcu_store('flash', $flash);
 	}
 }

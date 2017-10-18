@@ -4,10 +4,9 @@ This is a small project to try to figure out basic ways of handling routing, fla
 
 ### Requirements
 
-* PHP7.1
+* PHP7.*
 
 * php-apcu
-* php-apcu-bc
 
 ### Instructions
 
